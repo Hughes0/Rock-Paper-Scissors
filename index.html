@@ -2,7 +2,34 @@
 <html>
     <head>
         <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <h1>Rock Paper Scissors</h1>
+        <div id="overview">
+            <div>
+                <p>Player Score: <span id="playerscore">0</span></p>
+            </div>
+            <div>
+                <p id="status">Make a selection to start the game</p>
+            </div>
+            <div>
+                <p>Computer Score: <span id="computerscore">0</span></p>
+            </div>
+        </div>
+        <div id="selections">
+            <div class="selection">
+                <input type="image" id="rockselect" alt="Rock" src="images/rock.png">
+            </div>
+            <div class="selection">
+                <input type="image" id="paperselect" alt="Paper" src="images/paper.png">
+            </div>
+            <div class="selection">
+                <input type="image" id="scissorsselect" alt="Scissors" src="images/scissors.png">
+            </div>
+        </div>
+        <div>
+            <button id="restart">Restart</button>
+        </div>
     </body>
 </html>
