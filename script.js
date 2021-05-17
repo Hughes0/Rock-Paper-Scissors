@@ -84,12 +84,33 @@ function highlightSelection(selection, result) {
 };
 
 
+function resetGame() {
+    // reset status
+    document.getElementById("status").textContent = "Make a selection to start the game";
+    // reset scores
+    document.getElementById("playerscore").textContent = "0";
+    document.getElementById("computerscore").textContent = "0";
+    // reset selection borders
+    selectionOptions.forEach(option => {
+        document.getElementById(`${option}select`).style['border'] = "none";
+    });
+};
+
+
+
 function updateStatus(playerSelection, computerSelection, result) {
     let status = document.getElementById("status");
     let playerScore = document.getElementById("playerscore");
     let newPlayerScore = parseInt(playerScore.textContent) + 1;
     let computerScore = document.getElementById("computerscore");
     let newComputerScore = parseInt(computerScore.textContent) + 1;
+    console.log(newPlayerScore);
+    console.log(newComputerScore);
+    if (newPlayerScore > 5 || newComputerScore > 5) {
+        resetGame();
+        newPlayerScore = 1;
+        newComputerScore = 1;
+    }
     // set status element
     if (result == "win") {
         // increase player score
@@ -110,17 +131,7 @@ function updateStatus(playerSelection, computerSelection, result) {
 };
 
 
-function resetGame() {
-    // reset status
-    document.getElementById("status").textContent = "Make a selection to start the game";
-    // reset scores
-    document.getElementById("playerscore").textContent = "0";
-    document.getElementById("computerscore").textContent = "0";
-    // reset selection borders
-    selectionOptions.forEach(option => {
-        document.getElementById(`${option}select`).style['border'] = "none";
-    });
-};
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
